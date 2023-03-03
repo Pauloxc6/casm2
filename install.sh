@@ -24,7 +24,7 @@ printf "\e[1;97m[+] Install figlet\n\e[0m"
 apt install figlet -y
 
 printf "\e[1;97m[+] Install objdump\n\e[0m"
-apt install objdump -y
+apt install binutils -y
 
 #===========================================================
 exit 0
