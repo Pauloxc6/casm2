@@ -43,7 +43,7 @@ The script can also disassemble the executable file in machine language using th
 #### Windows
 ``./casm2.sh <script> --sys windows -d``
 
-## Generator Coding
+## Generator Code
 This function generates code of the user's choice, with this function you can print a scope of the code to make its life easier.
 
 ``./casm2.sh -g asm``<br/>
