@@ -28,15 +28,15 @@ do
 	case $1 in
 
 		-h|--help)
-				printf "\e[1;93mHelp Menu:\n"
+			printf "\e[1;93mHelp Menu:\n"
 	    		printf "\e[1;96mHelp: $0 \e[1;97m<script.asm> \e[1;93m--arch \e[1;92m[arquitetura] \e[1;93m--sys \e[1;92m[system] \e[1;93m--com \e[1;92m[compiler] \e[1;93m-d \e[1;92m[disassemble] \e[1;93m[-h|--help]\n"
 	    		printf "\e[1;96m[--help] Mostra o help do programa\n"
 	    		printf "\e[1;96m[-v|-version] Version\n"
 	    		printf "\e[1;96m[--arch] Artitetura do computudor \e[1;94m[x86_64] ou \e[1;94m[x86]\n"
 	    		printf "\e[1;96m[--sys] Sistema Operacional \e[1;94m[linux] ou \e[1;94m[windowns]\n"
-				printf "\e[1;96m[--com] Compilador a ser utilizado | \e[1;94m[nasm], \e[1;94m[gcc], \e[1;94m[fpc]\n"
+			printf "\e[1;96m[--com] Compilador a ser utilizado | \e[1;94m[nasm], \e[1;94m[gcc], \e[1;94m[fpc]\n"
 	    		printf "\e[1;96m[-d] Disasemble Coding (Somente Compilado)\n"
-				printf "\e[1;96m[-g] Generate Coding \e[1;94m[asm], \e[1;94m[c], \e[1;94m[pas]\n"
+			printf "\e[1;96m[-g] Generate Coding \e[1;94m[asm], \e[1;94m[c], \e[1;94m[pas]\n"
 	   		exit 0;;
 
 	 	-v|--version)
