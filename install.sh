@@ -27,9 +27,9 @@ printf "\e[1;97m[+] Install objdump\n\e[0m"
 apt install binutils -y
 
 printf "\e[1;97m[+] Install gcc-mingw-w64-x86-64\n\e[0m"
-apt install gcc-mingw-w64-x86-64
+apt install gcc-mingw-w64-x86-64 -y
 
 printf "\e[1;97m[+] Install gcc-mingw-w64-i686\n\e[0m"
-apt install gcc-mingw-w64-i686
+apt install gcc-mingw-w64-i686 -y
 #===========================================================
 exit 0
