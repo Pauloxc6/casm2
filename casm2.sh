@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-clear
 date1=$(date)
 
 #Banner
@@ -59,12 +58,12 @@ do
 			#gen coding
 			if [[ $gen == "asm" ]];then
 				printf "[+]---------------------------------------[+]\n"
-				echo -e "section .text\n\tglobal _start\n\n_start:\n\n\tnop\n\n\t;exit\n\n\tmov eax,1\n\tmov ebx,0\n\tint 0x80"
+				echo -e "section .text\n\tglobal _start\n\n_start:\n\n\tnop\n\t;exit\n\n\tmov eax,1\n\tmov ebx,0\n\tint 0x80"
 				printf "[+]---------------------------------------[+]\n"
 
 			elif [[ $gen == "c" ]];then
 				printf "[+]---------------------------------------[+]\n"
-				echo -e "#include <stdio.h>\n\n\tint main(int argc, char *argv[]){\n\n\treturn 0;\n\n}"
+				echo -e "#include <stdio.h>\n\nint main(int argc, char *argv[]){\n\n\treturn 0;\n\n}"
 				printf "[+]---------------------------------------[+]\n"
 
 			elif [[ $gen == "pas" ]];then
