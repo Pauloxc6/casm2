@@ -26,7 +26,7 @@ Help: ./casm2.sh <script.asm> --arch [architecture] --sys [system] --com [compil
 
 `` ./casm2.sh <script.asm> --arch x86 --sys linux --com nasm ``
 
-## C ou CPP
+## C
 
 `` ./casm2.sh <script.c> --arch x86_64 --sys linux --com gcc ``
 
