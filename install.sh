@@ -26,5 +26,10 @@ apt install figlet -y
 printf "\e[1;97m[+] Install objdump\n\e[0m"
 apt install binutils -y
 
+printf "\e[1;97m[+] Install gcc-mingw-w64-x86-64\n\e[0m"
+apt install gcc-mingw-w64-x86-64
+
+printf "\e[1;97m[+] Install gcc-mingw-w64-i686\n\e[0m"
+apt install gcc-mingw-w64-i686
 #===========================================================
 exit 0
