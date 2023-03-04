@@ -19,7 +19,7 @@ gen="asm"
 p1=$1
 
 #Retira a extensao [.asm,.c,.cpp,.pas] do script e armazena o nome na variavel name
-name=$(echo $p1 | sed 's/\.asm//' || sed 's/\.c//' || sed 's/\.cpp//' || sed 's/\.pas//')
+name=$(echo $p1 | sed 's/\.asm//' || sed 's/\.c//' || sed 's/\.pas//')
 
 #Menu Help
 while [[ $# -gt 0 ]]
@@ -35,7 +35,7 @@ do
 	    		printf "\e[1;96m[--sys] Sistema Operacional \e[1;94m[linux] ou \e[1;94m[windowns]\n"
 			printf "\e[1;96m[--com] Compilador a ser utilizado | \e[1;94m[nasm], \e[1;94m[gcc], \e[1;94m[fpc]\n"
 	    		printf "\e[1;96m[-d] Disasemble Coding (Somente Compilado)\n"
-			printf "\e[1;96m[-g] Generate Coding \e[1;94m[asm], \e[1;94m[c], \e[1;94m[pas]\n"
+			printf "\e[1;96m[-g] Generate Coding \e[1;94m[asm], \e[1;94m[c], \e[1;94m[pas]\e[0m\n"
 	   		exit 0;;
 
 	 	-v|--version)
@@ -181,7 +181,8 @@ if [[ $com == "gcc"  ]];then
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
 		elif [[ $sys == "windows" ]];then
-
+			
+			x86_64-w64-mingw32-gcc -o $name.exe $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
 			printf "\e[1;93mFForam Criado os Arquivos: \n"
@@ -202,7 +203,8 @@ if [[ $com == "gcc"  ]];then
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
 		elif [[ $sys == "windows" ]];then
-
+			
+			i686-w64-mingw32-gcc -m32 -o $name.exe $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
 			printf "\e[1;93mFForam Criado os Arquivos: \n"
