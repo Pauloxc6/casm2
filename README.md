@@ -10,6 +10,7 @@ The script needs some programs to work. Install with the command:
 ### How to use
 The script parses the arguments passed to the script and performs the appropriate action based on the argument. If the argument is "-h" or "--help", the help option is displayed. If the argument is "-v" or "--version", the script version is displayed. If the argument is "--arch", "--sys" or "--com", the corresponding variable is updated with the value provided by the user. If the argument is "-d", the compiled file is dismounted (disassembled). If the argument is "-g", the source code is generated using the appropriate function and is displayed on the screen.
 
+`` ./casm2.sh --help ``
 #### HELP:
 
 Help Menu:<br/>
@@ -21,6 +22,8 @@ Help: ./casm2.sh <script.asm> --arch [architecture] --sys [system] --com [compil
 [--com] Compiler to be used | [nasm], [gcc], [fpc]<br/>
 [-d] Disassembler Code (Somente Compilado)<br/>
 [-g] Generate Code [asm], [c], [pas]<br/>
+
+![alt text](img/1.png)
 
 ## Assembler
 
