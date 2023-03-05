@@ -78,13 +78,13 @@ do
 
 	 		if [[ $sys == "linux" ]];then
 	 			clear
-    				printf "\e[1;94mDisassembler .....\n"
+    				printf "\e[1;94mDisassembler .....\n\e[0m"
         			echo ""
     				objdump -dM intel $name
 
 	 		elif [[ $sys == "windows" ]];then
 	 			clear
-    				printf "\e[1;94mDisassembler .....\n"
+    				printf "\e[1;94mDisassembler .....\n\e[0m"
         			echo ""
     				objdump -dM intel -M addr16,data16 $name
 
@@ -127,7 +127,7 @@ if [[ $com == "nasm"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		elif [[ $arch == "x86" ]]; then
 
@@ -136,7 +136,7 @@ if [[ $com == "nasm"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		fi
 	fi
@@ -149,7 +149,7 @@ if [[ $com == "nasm"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.obj\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		elif [[ $arch == "x86" ]];then
 
@@ -158,7 +158,7 @@ if [[ $com == "nasm"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.obj\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 		fi
 
 	fi
@@ -176,7 +176,7 @@ if [[ $com == "gcc"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		elif [[ $sys == "windows" ]];then
 			
@@ -185,7 +185,7 @@ if [[ $com == "gcc"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		fi
 	fi
@@ -198,7 +198,7 @@ if [[ $com == "gcc"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		elif [[ $sys == "windows" ]];then
 			
@@ -207,7 +207,7 @@ if [[ $com == "gcc"  ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 		fi
 	fi
 
@@ -224,7 +224,7 @@ if [[ $com == "fpc" ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		elif [[ $sys == "windows" ]];then
 
@@ -233,7 +233,7 @@ if [[ $com == "fpc" ]];then
 			printf "\n"
 			printf "\e[1;93mFThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		fi
 	fi
@@ -246,7 +246,7 @@ if [[ $com == "fpc" ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 
 		elif [[ $sys == "windows" ]];then
 
@@ -255,7 +255,7 @@ if [[ $com == "fpc" ]];then
 			printf "\n"
 			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
-			printf "\e[1;94m[-] --> \e[1;97m$name\n"
+			printf "\e[1;94m[-] --> \e[1;97m$name\n\e[0m"
 		fi
 	fi
 
