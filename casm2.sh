@@ -3,22 +3,22 @@
 date1=$(date)
 
 #Banner
-figlet Compilador
+figlet Compiler
 printf "\e[1;97mBY: pauloxc6\n"
 printf "\e[1;97mGithub: pauloxc6   |                     ($date1)\n"
 printf "\n"
 
-#Tratamento de erros
+#Error handling
 [[ $# -le 0 ]] && printf "\e[1;96mHelp: $0 \e[1;97m<script.asm> \e[1;96m-h\n" && exit 1
 
-#variaveis
+#var
 arch="x86"
 sys="linux"
 com="nasm"
 gen="asm"
 p1=$1
 
-#Retira a extensao [.asm,.c,.cpp,.pas] do script e armazena o nome na variavel name
+#Removes the widely [.asm,.c,.cpp,.pas] from the script and stores the name in the variable name
 name=$(echo $p1 | sed 's/\.asm//' || sed 's/\.c//' || sed 's/\.pas//')
 
 #Menu Help
@@ -28,13 +28,13 @@ do
 
 		-h|--help)
 			printf "\e[1;93mHelp Menu:\n"
-	    		printf "\e[1;96mHelp: $0 \e[1;97m<script.asm> \e[1;93m--arch \e[1;92m[arquitetura] \e[1;93m--sys \e[1;92m[system] \e[1;93m--com \e[1;92m[compiler] \e[1;93m-d \e[1;92m[disassemble] \e[1;93m[-h|--help]\n"
-	    		printf "\e[1;96m[--help] Mostra o help do programa\n"
+	    		printf "\e[1;96mHelp: $0 \e[1;97m<script.asm> \e[1;93m--arch \e[1;92m[architecture] \e[1;93m--sys \e[1;92m[system] \e[1;93m--com \e[1;92m[compiler] \e[1;93m-d \e[1;92m[disassembler] \e[1;93m[-h|--help]\n"
+	    		printf "\e[1;96m[--help]Shows the help of the program\n"
 	    		printf "\e[1;96m[-v|-version] Version\n"
-	    		printf "\e[1;96m[--arch] Artitetura do computudor \e[1;94m[x86_64] ou \e[1;94m[x86]\n"
-	    		printf "\e[1;96m[--sys] Sistema Operacional \e[1;94m[linux] ou \e[1;94m[windowns]\n"
-			printf "\e[1;96m[--com] Compilador a ser utilizado | \e[1;94m[nasm], \e[1;94m[gcc], \e[1;94m[fpc]\n"
-	    		printf "\e[1;96m[-d] Disasemble Coding (Somente Compilado)\n"
+	    		printf "\e[1;96m[--arch] Computudor architecture \e[1;94m[x86_64] ou \e[1;94m[x86]\n"
+	    		printf "\e[1;96m[--sys] Operating system \e[1;94m[linux] ou \e[1;94m[windowns]\n"
+			printf "\e[1;96m[--com] Compiler to be used| \e[1;94m[nasm], \e[1;94m[gcc], \e[1;94m[fpc]\n"
+	    		printf "\e[1;96m[-d] Disassembled Coding (Compiled Only)\n"
 			printf "\e[1;96m[-g] Generate Coding \e[1;94m[asm], \e[1;94m[c], \e[1;94m[pas]\e[0m\n"
 	   		exit 0;;
 
@@ -78,13 +78,13 @@ do
 
 	 		if [[ $sys == "linux" ]];then
 	 			clear
-    				printf "\e[1;94mDisassemble .....\n"
+    				printf "\e[1;94mDisassembler .....\n"
         			echo ""
     				objdump -dM intel $name
 
 	 		elif [[ $sys == "windows" ]];then
 	 			clear
-    				printf "\e[1;94mDisassemble .....\n"
+    				printf "\e[1;94mDisassembler .....\n"
         			echo ""
     				objdump -dM intel -M addr16,data16 $name
 
@@ -95,11 +95,10 @@ do
 	shift
 done
 
-#compilando
+#Compiler
 #nasm
 if [[ $com == "nasm"  ]];then
 
-	# Gera o codigo objeto codido.o
 	if [[ $arch == "x86_64" ]];then
 
 		if [[ $sys == "linux" ]];then
@@ -119,7 +118,6 @@ if [[ $com == "nasm"  ]];then
 		fi
 	fi
 
-	#Linka o codigo objeto para um executavel usando ld
 	#Linux
 	if [[ $sys == "linux" ]];then
 		if [[ $arch == "x86_64" ]];then
@@ -127,7 +125,7 @@ if [[ $com == "nasm"  ]];then
 			ld -o $name $name.o
 			printf "\e[1;94m[+] Compilando \e[1;97m[$name.asm] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -136,7 +134,7 @@ if [[ $com == "nasm"  ]];then
 			ld -m elf_i386 -o $name $name.o
 			printf "\e[1;94m[+] Compilando \e[1;97m[$name.asm] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -149,7 +147,7 @@ if [[ $com == "nasm"  ]];then
 			ld -o $name $name.obj
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.asm] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.obj\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -158,7 +156,7 @@ if [[ $com == "nasm"  ]];then
 			ld -m elf_i386 -o $name $name.obj
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.asm] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.obj\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 		fi
@@ -176,7 +174,7 @@ if [[ $com == "gcc"  ]];then
 			gcc -o $name $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -185,7 +183,7 @@ if [[ $com == "gcc"  ]];then
 			x86_64-w64-mingw32-gcc -o $name.exe $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -198,7 +196,7 @@ if [[ $com == "gcc"  ]];then
 			gcc -m32 -o $name $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -207,7 +205,7 @@ if [[ $com == "gcc"  ]];then
 			i686-w64-mingw32-gcc -m32 -o $name.exe $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.c\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 		fi
@@ -224,7 +222,7 @@ if [[ $com == "fpc" ]];then
 			fpc -Px86_64 $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -233,7 +231,7 @@ if [[ $com == "fpc" ]];then
 			fpc -Px86_64 -Twin64 $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mFThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -246,7 +244,7 @@ if [[ $com == "fpc" ]];then
 			fpc -Pi386 $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 
@@ -255,7 +253,7 @@ if [[ $com == "fpc" ]];then
 			fpc -Pi386 $p1
 			printf "\e[1;94mF[+] Compilando \e[1;97m[$name.c] \e[1;96m[$sys - $arch - $com] .....\n"
 			printf "\n"
-			printf "\e[1;93mFForam Criado os Arquivos: \n"
+			printf "\e[1;93mThe files were created: \n"
 			printf "\e[1;94m[-] --> \e[1;97m$name.o\n"
 			printf "\e[1;94m[-] --> \e[1;97m$name\n"
 		fi
