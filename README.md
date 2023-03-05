@@ -23,7 +23,7 @@ Help: ./casm2.sh <script.asm> --arch [architecture] --sys [system] --com [compil
 [-d] Disassembler Code (Somente Compilado)<br/>
 [-g] Generate Code [asm], [c], [pas]<br/>
 
-![alt text](img/1.png)
+!(img/1.png)
 
 ## Assembler
 
