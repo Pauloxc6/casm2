@@ -17,7 +17,7 @@ Help Menu:<br/>
 Help: ./casm2.sh <script.asm> --arch [architecture] --sys [system] --com [compiler] -d [disassembler] [-h|--help]<br/>
 [--help] Shows the help of the program<br/>
 [-v|-version] Version<br/>
-[--arch] Computer artitetura [x86_64] ou [x86]<br/>
+[--arch] Computer  architecture [x86_64] ou [x86]<br/>
 [--sys] Operating system [linux] ou [windowns]<br/>
 [--com] Compiler to be used | [nasm], [gcc], [fpc]<br/>
 [-d] Disassembler Code (Compiled Only)<br/>
