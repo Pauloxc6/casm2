@@ -20,7 +20,7 @@ Help: ./casm2.sh <script.asm> --arch [architecture] --sys [system] --com [compil
 [--arch] Computer artitetura [x86_64] ou [x86]<br/>
 [--sys] Operating system [linux] ou [windowns]<br/>
 [--com] Compiler to be used | [nasm], [gcc], [fpc]<br/>
-[-d] Disassembler Code (Somente Compilado)<br/>
+[-d] Disassembler Code (Compiled Only)<br/>
 [-g] Generate Code [asm], [c], [pas]<br/>
 
 ![](https://github.com/Pauloxc6/casm2/blob/main/img/1.png)
