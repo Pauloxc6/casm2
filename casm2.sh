@@ -20,6 +20,22 @@ p1=$1
 
 #Removes the widely [.asm,.c,.cpp,.pas] from the script and stores the name in the variable name
 name=$(echo $p1 | sed 's/\.asm//' || sed 's/\.c//' || sed 's/\.pas//')
+name_ext=$(echo $p1 | cut -d "." -f2)
+varch=$(uname -m)
+
+if [[ $name_ext = "asm" ]]; then
+	com="nasm"
+elif [[ $name_ext = "c" ]]; then
+	com="gcc"
+elif [[ $name_ext = "pas" ]]; then
+	com="fpc"
+fi
+
+if [[ $varch = "x86" ]]; then
+	arch="x86"
+elif [[ $varch = "x86_64" ]]; then
+	arch="x86_64"
+fi
 
 #Menu Help
 while [[ $# -gt 0 ]]
@@ -28,13 +44,13 @@ do
 
 		-h|--help)
 			printf "\e[1;93mHelp Menu:\n"
-	    		printf "\e[1;96mHelp: $0 \e[1;97m<script.asm> \e[1;93m--arch \e[1;92m[architecture] \e[1;93m--sys \e[1;92m[system] \e[1;93m--com \e[1;92m[compiler] \e[1;93m-d \e[1;92m[disassembler] \e[1;93m[-h|--help]\n"
-	    		printf "\e[1;96m[--help]Shows the help of the program\n"
-	    		printf "\e[1;96m[-v|-version] Version\n"
-	    		printf "\e[1;96m[--arch] Computer architecture \e[1;94m[x86_64] or \e[1;94m[x86]\n"
-	    		printf "\e[1;96m[--sys] Operating system \e[1;94m[linux] or \e[1;94m[windowns]\n"
+	    	printf "\e[1;96mHelp: $0 \e[1;97m<script.asm> \e[1;93m--arch \e[1;92m[architecture] \e[1;93m--sys \e[1;92m[system] \e[1;93m--com \e[1;92m[compiler] \e[1;93m-d \e[1;92m[disassembler] \e[1;93m[-h|--help]\n"
+	    	printf "\e[1;96m[--help]Shows the help of the program\n"
+	    	printf "\e[1;96m[-v|-version] Version\n"
+	    	printf "\e[1;96m[--arch] Computer architecture \e[1;94m[x86_64] or \e[1;94m[x86]\n"
+	    	printf "\e[1;96m[--sys] Operating system \e[1;94m[linux] or \e[1;94m[windowns]\n"
 			printf "\e[1;96m[--com] Compiler to be used| \e[1;94m[nasm], \e[1;94m[gcc], \e[1;94m[fpc]\n"
-	    		printf "\e[1;96m[-d] Disassembled Coding (Compiled Only)\n"
+	    	printf "\e[1;96m[-d] Disassembled Coding (Compiled Only)\n"
 			printf "\e[1;96m[-g] Generate Coding \e[1;94m[asm], \e[1;94m[c], \e[1;94m[pas]\e[0m\n"
 	   		exit 0;;
 
